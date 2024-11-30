@@ -7,6 +7,7 @@ import pic4 from '@/assets/images/brands/bata.webp'
 import Image from 'next/image'
 import Colors from './ColorBox'
 import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
 export interface productCard{
     image:any,
     name:string,
@@ -34,7 +35,7 @@ export default function ProductCard({product}:{product:productCard}) {
     router.push(`/products/${product?.primary_id}`)
    }
   return (
-    <div onClick={clicked} className="relative transition-all duration-300 transform cursor-pointer flex w-full  flex-col overflow-hidden group  bg-white ">
+    <motion.div initial={{y:10,opacity:0}} animate={{y:0,opacity:1}} transition={{duration:0.2}} onClick={clicked} className="relative transition-all duration-300 transform cursor-pointer flex w-full  flex-col overflow-hidden group  bg-white ">
   <div
     className="relative mt-3 bg-zinc-100 flex justify-center place-items-center h-60 overflow-hidden "
    
@@ -78,7 +79,7 @@ export default function ProductCard({product}:{product:productCard}) {
     </div>
 
   </div>
-</div>
+</motion.div>
 
   )
 }

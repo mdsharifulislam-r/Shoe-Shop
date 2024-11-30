@@ -8,6 +8,8 @@ import shoe3 from '@/assets/images/hero/shoe4.webp'
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import PopUp from './PopUp'
+import { useAppSelector } from '@/lib/hooks/hooks'
 
 const shoeData =[
   {
@@ -54,6 +56,21 @@ export default function Hero() {
     
    
   }
+  const [adshowState,setAdShowState]=useState(true)
+  const adshow = useAppSelector(state=>state.cartReduicer.isAdShow)
+  useEffect(()=>{
+    if(!adshow){
+      setTimeout(() => {
+        setAdShowState(adshow)
+      }, 5000);
+    }else{
+      setAdShowState(adshow)
+    }
+   
+   
+  },[adshow])
+  
+  
   return (
     <div className='w-full  overflow-hidden min-h-screen transition-all duration-500  bg-[#E5E5E5] relative'>
       <div className="absolute transition-all duration-500 z-0 w-full h-full left-0 top-0 overflow-hidden">
@@ -90,6 +107,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      {typeof(adshowState)=='object' || !adshowState ? <PopUp/>:""}
     </div>
   )
 }
