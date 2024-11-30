@@ -7,9 +7,9 @@ import Link from 'next/link'
 
 export default function MainContainer() {
   const cartData = useAppSelector(state=>state.cartReduicer.cart)
-  const arr = cartData?.map(item=>(
+  const arr =cartData?.length? cartData?.map(item=>(
     <CartItem cartItem={item} key={item.cart_id}/>
-  ))
+  )):[]
   return (
     <section className=" relative z-10 after:contents-[''] after:absolute after:z-0 after:h-full xl:after:w-1/3 after:top-0 after:right-0 after:bg-gray-50">
   <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto relative z-10">
@@ -44,7 +44,7 @@ export default function MainContainer() {
             </div>
           </div>
         </div>
-      {arr}
+      {cartData?.length?arr:<></>}
         <div className="flex items-center justify-end mt-8">
           <button className="flex items-center px-5 py-3 rounded-full gap-2 border-none outline-0 group font-semibold text-lg leading-8 text-indigo-600 shadow-sm shadow-transparent transition-all duration-500 hover:text-indigo-700">
             Add Coupon Code
