@@ -35,7 +35,7 @@ export default function ProductCard({product}:{product:productCard}) {
     router.push(`/products/${product?.primary_id}`)
    }
   return (
-    <motion.div initial={{y:10,opacity:0}} animate={{y:0,opacity:1}} transition={{duration:0.2}} onClick={clicked} className="relative transition-all duration-300 transform cursor-pointer flex w-full  flex-col overflow-hidden group  bg-white ">
+    <motion.div  animate={{y:0,opacity:1}} transition={{duration:0.2}} onClick={clicked} className="relative transition-all duration-300 transform cursor-pointer flex w-full  flex-col overflow-hidden group  bg-white ">
   <div
     className="relative mt-3 bg-zinc-100 flex justify-center place-items-center h-60 overflow-hidden "
    
