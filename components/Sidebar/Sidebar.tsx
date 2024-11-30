@@ -77,6 +77,7 @@ export default function Sidebar() {
   <div
     id="hs-application-sidebar"
     className={`hs-overlay  [--auto-close:lg]
+      
   hs-overlay-open:translate-x-0
   -translate-x-full transition-all duration-300 transform
   ${sideState?'w-[260px]':"w-0"} h-screen
@@ -99,7 +100,7 @@ export default function Sidebar() {
           className="hs-accordion-group p-3 w-full flex flex-col flex-wrap"
           data-hs-accordion-always-open=""
         >
-          <ul className="flex flex-col space-y-1">
+          <ul className="flex flex-col space-y-1 mt-20 md:mt-0">
         
             <li className="hs-accordion" id="account-accordion">
               <button
