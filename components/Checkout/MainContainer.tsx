@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks/hooks";
 import { priceCalculate } from "../common/Cart/Cart";
 import { useDispatch } from "react-redux";
 import { clearCart } from "@/lib/store/features/cartSlice";
+import { useRouter } from "next/navigation";
 
 export interface orderType{
   address:string,
@@ -62,7 +63,7 @@ export default function MainContainer() {
       user_id:user?.primary_id||1
 
     }
-    console.log(newObj);
+
     
    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/orders`,{
     method:"POST",
@@ -79,6 +80,12 @@ export default function MainContainer() {
    }
     
   }
+  const router = useRouter()
+  useEffect(()=>{
+    if(!user?.email){
+      router.push("login")
+    }
+  },[])
   return (
     <div className="font-[sans-serif] transition-[height] duration-500 mt-14 lg:flex lg:items-center lg:justify-center lg:h-screen max-lg:py-4">
     <div className="bg-gray-100 p-8 w-full max-w-5xl max-lg:max-w-xl mx-auto rounded-md">
