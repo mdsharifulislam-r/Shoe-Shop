@@ -55,7 +55,7 @@ export default function Hero() {
    
   }
   return (
-    <div className='w-full animate-pullUpDisappearText  overflow-hidden min-h-screen transition-all duration-500  bg-[#E5E5E5] relative'>
+    <div className='w-full  overflow-hidden min-h-screen transition-all duration-500  bg-[#E5E5E5] relative'>
       <div className="absolute transition-all duration-500 z-0 w-full h-full left-0 top-0 overflow-hidden">
         <Image  src={Data?.img} alt='' width={1000} className='  transition-all duration-500 opacity-15' height={1000}/>
       </div>
