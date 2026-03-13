@@ -25,7 +25,7 @@ export default function MainContainer() {
             toast.error('Password not match')
             return
         }
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/account/12/14/users/register`,{
+        const res = await fetch(`https://back-builder.vercel.app/api/account/12/14/users/register`,{
             method:"POST",
             body:JSON.stringify({
                 email:formData.email,
